@@ -1,0 +1,25 @@
+.scan-history-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:25px;
+    
+}
+.scan-history-heading{
+    margin:5% 5px 20px 5px;
+}
+.scan-history-card{
+    border: 1px solid rgb(245, 239, 239);
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 5px 5px 10px  rgb(229, 227, 227);
+}
+
+.scan-history-card button{
+    color: white;
+    border: none;
+    margin:10px;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-transform: uppercase;
+    }
