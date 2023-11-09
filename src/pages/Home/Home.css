@@ -1,0 +1,19 @@
+.scanner-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.start-scan-button{
+    background-color: turquoise;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    padding: 22px 30px;
+    font-weight: 600;
+    border: none;
+    border-bottom: 5px solid black;
+    border-radius: 12px;
+}

@@ -2,10 +2,10 @@ import React, { useRef, useState } from 'react';
 import { toPng } from 'html-to-image';
 import { QRCodeSVG } from 'qrcode.react';
 import { QrReader } from 'react-qr-reader';
-import './QRScanner.css'
+import './Scanner.css'
 
 
-const QRScanner = () => {
+const Scanner = () => {
     const [data, setData] = useState('');
     const [qrCodeUrl, setQrCodeUrl] = useState('');
     const qrCodeRef = useRef();
@@ -15,6 +15,7 @@ const QRScanner = () => {
             const qrText = qrInfo.text
             setData(qrText); // capture content
         }
+        console.log(qrCodeRef.current);
         setTimeout(() =>{
             if(qrCodeRef.current){
                 toPng(qrCodeRef.current)
@@ -40,16 +41,16 @@ const QRScanner = () => {
     }
 
     const todayDate = getTodayDate();
-    console.log(todayDate);
+    // console.log(todayDate);
 
     return (
-        <div style={{ width:'500px', textAlign:'center'}}>
+        <div className='qr-reader-container'>
             <QrReader
-                constraints={{ facingMode: 'environment' }}
+                
                 onResult={handleQRScan}
             />
             
-            <div className='qr-reader-container'>
+            <div className='qr-info-container'>
                 {
                 data ?     
                 <>
@@ -63,17 +64,14 @@ const QRScanner = () => {
                 fgColor='#000000'
                 style={{width: 128}}
                 value={data}
-                /></div>
-                
+                />
+                </div>
+                <button className='qr-info-save-button'>Save this Information?</button>
                 </>
                 :
                 <p>Your QR Code info will be displayed here...</p>
                 
                 }
-                {/* <img src={qrCodeUrl}/> */}
-
-
-            
             </div>
 
 
@@ -81,4 +79,4 @@ const QRScanner = () => {
     );
 };
 
-export default QRScanner;
+export default Scanner;

@@ -1,0 +1,31 @@
+.qr-reader-container {
+    margin-top: 10%;
+    width: 50rem;
+
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10%
+}
+
+.qr-info-container {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: 1px solid rgb(237, 235, 235) ;
+    border-radius: 22px;
+    padding: 10px 25px;
+    box-shadow: 13px 13px 20px  rgb(229, 227, 227);
+
+
+}
+
+.qr-info-save-button {
+    padding: 10px 25px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    background-color: teal;
+    color: white;
+    text-transform: uppercase;
+}
