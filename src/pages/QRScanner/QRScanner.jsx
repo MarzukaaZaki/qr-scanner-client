@@ -29,25 +29,33 @@ const QRScanner = () => {
         }, 0)
  
     }
-    const handleError = (error) => {
-        console.error(error);
-    };
+    
+    const getTodayDate = () =>{
+        const date = new Date();
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth()+1).padStart(2, '0');
+        const year = date.getFullYear();
+
+        return `${day}/${month}/${year}`;
+    }
+
+    const todayDate = getTodayDate();
+    console.log(todayDate);
 
     return (
         <div style={{ width:'500px', textAlign:'center'}}>
             <QrReader
                 constraints={{ facingMode: 'environment' }}
                 onResult={handleQRScan}
-                
-
             />
             
-            <div className='qr-reader-container' style={{ border: '2px solid black',  borderRadius:'10px', padding:'10px 25px'}}>
+            <div className='qr-reader-container'>
                 {
                 data ?     
                 <>
                 <p><strong>Content:</strong> {data}</p>
                 <div ref={qrCodeRef}>
+                <p><strong>Scanned on:</strong> {todayDate}</p>
                 <p><strong> Thumbnail: </strong></p>
                 <QRCodeSVG
                 id='qr-code-svg'

@@ -2,7 +2,8 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    border: '2px solid black';
-    border-radius:'10px';
-    padding:'10px 25px'
+    border: 2px solid black;
+    border-radius:10px;
+    padding:10px 25px;
+   
 }
