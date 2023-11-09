@@ -4,9 +4,8 @@ import axios, { Axios } from 'axios';
 import { QRCodeSVG } from 'qrcode.react';
 const ScanHistory = () => {
     const [scanData, setScanData] = useState([])
-
-    useEffect(() => {
-        axios.get('http://localhost:5000/qrcodes')
+const fetchData = () =>{
+    axios.get('http://localhost:5000/qrcodes')
             .then(res => {
                 setScanData(res.data)
             })
@@ -14,7 +13,23 @@ const ScanHistory = () => {
                 console.error('Error fetching data:', error);
 
             })
-    })
+}
+    useEffect(() => {
+        fetchData();
+    }, [])
+
+    const handleDelete = (id) =>{
+        axios.delete(`http://localhost:5000/qrcodes/${id}`)
+        .then(res =>{
+            alert('Entry deleted successfully');
+            fetchData();
+        })
+        .catch(error =>{
+            alert('Error deleting entry', error)
+        })
+        
+
+    }
 
 
     return (
@@ -34,7 +49,7 @@ const ScanHistory = () => {
                             <QRCodeSVG value={scanItem.content} />
                         </div>
 
-                        <button style={{ backgroundColor: 'brown' }}> Delete</button>
+                        <button onClick={() => handleDelete(scanItem.id)} style={{ backgroundColor: 'brown' }}> Delete</button>
                     </div>)
 
                 }
