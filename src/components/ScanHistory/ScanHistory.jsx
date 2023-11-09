@@ -3,7 +3,7 @@ import './ScanHistory.css'
 import axios, { Axios } from 'axios';
 import { QRCodeSVG } from 'qrcode.react';
 const ScanHistory = () => {
-    const [scanData, setScanData] = useState([])
+const [scanData, setScanData] = useState([])
 const fetchData = () =>{
     axios.get('http://localhost:5000/qrcodes')
             .then(res => {
